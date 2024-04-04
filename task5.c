@@ -5,7 +5,7 @@
 
 #define ARRAY_SIZE 10
 
-void scanArrray(int arr[], int size)
+void scanArray(int arr[], int size)
 {
     for (size_t i = 0; i < size; i++)
     {
@@ -22,11 +22,10 @@ void printArray(int arr[], int size)
     printf("\n");
 }
 
-int* secondZero(int arr_1[], int size)
+int getSecondArray(int arr_1[], int arr_2[], int size_1)
 {
     int j = 0;
-    int arr_2[size];
-    for (size_t i = 0; i < size; i++)
+    for (size_t i = 0; i < size_1; i++)
     {
         if ((arr_1[i] / 10) % 10 == 0)
         {
@@ -34,16 +33,14 @@ int* secondZero(int arr_1[], int size)
             j++;
         }
     }
-    return arr_2;
+    return j;
 }
 
 int main(int argc, char const *argv[])
 {
     int arrayA[ARRAY_SIZE], arrayB[ARRAY_SIZE];
-    scanArrray(arrayA, ARRAY_SIZE);
-    //secondZero(arrayA, ARRAY_SIZE);
-    *arrayB = secondZero(arrayA, ARRAY_SIZE);
-    printArray(arrayB, 4);
-
+    scanArray(arrayA, ARRAY_SIZE);
+    int arraybSize = getSecondArray(arrayA, arrayB, ARRAY_SIZE);
+    printArray(arrayB, arraybSize);
     return 0;
 }
